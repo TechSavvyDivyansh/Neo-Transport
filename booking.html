@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Ride</title>
+    <link rel="stylesheet" href="https://drive.google.com/file/d/1LNtkTy1q4LDi5RlTwERFGk7sMXD6WoXp/view?usp=sharing">
+</head>
+
+<body>
+    <nav class="navbar background">
+        <ul class="nav-list">
+            <div class="logo"><img
+                    src="./images/PhotoRoom-20230901_095647.png"
+                    alt="logo">
+            </div>
+            <li class="navhome"><a href="./index.html">Home</a></li>
+            <li class="navaboutus"><a href="./index2.html">About Us</a></li>
+            <li class="navserv"><a href="#services">Services</a></li>
+            <li class="navcontact"><a href="#contact">Contact us</a></li>
+        </ul>
+    </nav>
+    <style>
+        .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+     cursor: pointer; 
+}
+.nav-list li a {
+    text-decoration: none;
+    color: rgb(0, 170, 255);
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.nav-list li a:hover {
+    text-decoration: rgb(255, 0, 187);
+    color: rgb(229, 255, 0);
+}
+                    .logo {
+                   width: 13%;
+                 display: flex;
+                 justify-content: center;
+                  align-items: center;
+                  cursor:none;
+}
+
+                .logo img {
+               width: 80%;
+                }
+             
+        .nav-list {
+width: 100%;
+ background-color: black; 
+display: flex;
+align-items: center;
+border: 2px;
+}
+
+.nav-list li {
+padding: 43px 97px;
+list-style: none;
+width: 20%;
+text-align: center;
+font-size: larger;
+border: 1px;
+}
+
+      </style>
+
+
+    <section class="background firstsection">
+        <div class="box-main" id="home">
+            <div class="firsthalf">
+                <div class="location">
+                    <button class="btn-light" onclick="getlocation()">Give us IP identity and Location</button>
+
+
+                    <script>const getlocation = () => {
+                        fetch("https://ipapi.co/json/")
+                            .then((response) => response.json())
+                            .then((data) => {
+                                const des = document.querySelector("p");
+                        
+                                des.innerHTML = `Latitude: ${data.latitude} Longitude: ${data.longitude}`;
+                        });
+                        };</script>
+                </div>
+
+                <div class="Destination">
+                    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+                        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+                        crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js">
+                    </script>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+                    <form method="post">
+                        <select class="city_list" name="city" style="text-align: center;">
+                            <option value="" >Enter Destination</option>
+                            <option value="RogueVille">RogueVille</option>
+                            <option value="BlooperChunk">BlooperChunk</option>
+                            <option value="Neo Mark">Neo Mark</option>
+                            <option value="Punk Hospital">Punk Hospital</option>
+                            <option value="Casino Hills">Casino Hills</option>
+                            <option value="Undertron">Undertron</option>
+                            <option value="Nightcliffs">Nightcliffs</option>
+                            <option value="Apocapolis">Apocapolis</option>
+                            <option value="Anarchapolis">Anarchapolis</option>
+                            <option value="Ether LAbs">Ether LAbs</option>
+                            <option value="Shadow Town">Shadow Town</option>
+                        </select>
+                        <style>
+                            .city_list {
+    background-color: white;
+    border: none;
+    font-weight: bold;
+    margin: 15px 3px;
+    padding: 20x 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 28px;
+    width: 600px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+                            }
+                            .city_list :hover{
+                                font: Tahoma;
+                            }
+                        </style>
+
+                    </form>
+
+                    <script>
+                        jQuery('.city_list').ch;
+                    </script>
+
+                </div>
+                <div class="datetime">
+
+                    <input class="date" type="date" required>
+                    <input class="time" type="time" required>
+
+                </div>
+                <div class="buttons">
+                    <link rel="availability" href="D:\availability.js">
+                    <div>
+                        <script>
+                    const searchAvailability = () => {
+                const response = confirm("Check the Availability!!");
+
+                if (response) {
+                    alert("The ride is available in your selected region");
+                } else {
+                    alert("Oops! sorry we arent able to find a ride in your area");
+                }
+            };
+                    </script>
+                    
+                   
+                    <button class="btn-avail" onclick="searchAvailability()">Search Availability</button>
+                </div> 
+                </div>
+                <div class="buttons">
+                    <link rel="booking" href="D:\confirmationbox.js">
+                    <div>
+                        <script>
+                        const confirmation = () => {
+                    const response = confirm("Do you want to pay NeoBank in EuroBucks and Book the ride?");
+                    
+                    console.log(response);
+                    if (response) {
+                    alert("The ride is booked,and being Teleported to your location in 10 seconds!!!!");
+                } else {
+                    alert("The booking was canceled");
+                }
+                    }
+                    if (response) {
+                    alert("The ride is booked,and being Teleported to your location in 10 seconds!!!!");
+                } else {
+                    alert("The booking was canceled");
+                }
+                    
+                    
+                    </script>
+                    
+                    
+                    <button class="btn-avail" onclick="confirmation(); ">Get Price & Book Ride</button>
+                    <!-- <button class="btn-avail" onclick="confirmation()">Book the ride</button> -->
+                    </div> 
+                </div>
+                
+                <div class="secondhalf">
+
+            </div>
+        </div>
+
+    </section>
+
+<style>
+    
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap'); */
+
+.paras {
+    padding-left:10%;
+}
+
+
+
+.section {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.section-left {
+    flex-direction: row-reverse;
+}
+
+
+.imgFluid {
+    border: 2px solid black;
+    border-radius: 300px;
+}
+
+.text1-big {
+    font-size: 40px;
+}
+
+.text1-small {
+    font-size: 20px;
+}
+
+.sectionsubtag {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-footer {
+    text-align: center;
+    padding: 30px 0px;
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+</style>
+
+    <style>
+        
+.background {
+    background: rgba(0, 0, 0, 0.7)url('1.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+
+}
+
+.firstsection {
+    height: 120vh;
+}
+
+.box-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    margin: auto;
+    height: 56%;
+    
+}
+
+.firsthalf {
+    width: 120%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+  
+.secondhalf {
+    width: 58%;
+    height: 57%;
+    text-align: center;
+    font-family: cursive;
+}
+
+
+.text-big {
+    font-size: 39px;
+}
+
+a:hover {
+    color: rgb(0, 232, 0);
+}
+
+.btn-light {
+    background-color: black;
+    font-weight: bold;
+    margin: 15px 3px;
+    padding: 15px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 25px;
+    width: 600px;
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.btn-avail {
+    background-color: black;
+    color: white;
+    width: 600px;
+    margin: 0 20px;
+    margin-top: 30px;
+    font-weight: bold;
+    padding: 15px 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+
+
+}
+
+.btn {
+    background-color: black;
+    font-weight: bold;
+    margin: 15px 3px;
+    padding: 15x 9px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 25px;
+    width: 200px;
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+
+}
+        body {
+            /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(Tulips.jpg); */
+            background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('ScZyDB.png');
+            background-size: cover;
+            background-blend-mode: darken;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            color: #fff !important;
+        }
+
+        .services {
+            margin: 90px auto;
+            text-align: center;
+        }
+
+
+        h3 a {
+            color: white
+        }
+
+
+        h1 {
+            font-family: sans-serif;
+            letter-spacing: 1px;
+        }
+
+        h1:after {
+            content: '';
+            background: black;
+            display: block;
+            width: 150px;
+            height: 3px;
+            margin: 10px auto;
+        }
+
+
+        .icon {
+            font-size: 40px;
+            margin: 20px auto;
+            padding: 20px;
+            height: 80px;
+            width: 80px;
+            border: 1px solid white;
+            border-radius: 50%
+        }
+
+        .col-md-3:hover {
+            box-shadow: 5px 7px 9px -3px rgba(255, 255, 255, 0.5);
+            cursor: pointer
+        }
+        .btntop
+{
+    position: relative;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    top: 150px;
+    padding:4px 10px;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+    background-color:cyan;
+    
+}
+
+.btntop a
+{
+    text-decoration: none;
+    color: black;
+}
+    </style>
+    <title>Services/Cyber-Ride</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <script src="https://kit.fontawesome.com/a93cb6a170.js" crossorigin="anonymous"></script>
+    </head>
+<style>
+    .datetime {
+    padding-top: 15px;
+}
+
+.datetime input {
+    border: none;
+    border-radius: 7px;
+    text-align: center;
+    padding: 12px 6px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.date {
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.time {
+    padding-bottom: 1px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.services {
+    padding-top: 100px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.contact {
+    background:url('./pngtree-cyberpunk-city-night-background-image_2120126.jpg');
+    height: 100vh;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: cyan;
+    box-shadow: 0 0 5px cyan,0 0 10px cyan,0 0 15px cyan;
+}
+
+.text-center {
+    padding: 30px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}serv
+
+.form {
+    max-width: 90vw;
+    margin: 42px auto;
+}
+
+.form-input {
+    margin: 15px 0;
+    padding: 5px 3px;
+    align-items: center;
+    width: 100%;
+    font-size: 18.5px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+</style>
+    <body>
+
+        <div class="container" id="services">
+            <div class="services">
+
+                <h1>Our Services</a></h1>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="icon">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+                    <h3>Cyber-Vehicles for Rent</a></h3>
+                    <p>We provide the best cozy and comfortable Cyber-vehicles to costumers on rental basis to
+                        travel from one part of the city to another.
+                    </p>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <div class="icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </div>
+                    <h3>Finds You Your Way</a></h3>
+                    <p>We help the costumers to find the most convenient way using either public transports
+                        or cyber-vehicles to reach upto their Destination.
+                    </p>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <div class="icon">
+                        <i class="fa-solid fa-van-shuttle"></i>
+
+                    </div>
+                    <h3>Public Transport Availability</a></h3>
+                    <p> We provide the details about the availability of public transport at the required date and time.
+                    </p>
+                </div>
+
+                <div class="col-md-3 text-center">
+                    <div class="icon">
+                        <i class="fa-solid fa-face-smile"></i>
+
+                    </div>
+                    <h3>Growing Together</a></h3>
+                    <p>We make sure that people travel in an rogue-friendly way without compromising with their
+                        comfort,style or time.
+                    </p>
+                </div>
+
+
+
+
+            </div>
+
+            <br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+        <section class="contact" id="contact">
+            <h2 class="text-center">Contact Us</h2>
+            <style>
+                h2:after {
+                    content: '';
+                    background: black;
+                    display: block;
+                    width: 150px;
+                    height: 3px;
+                    margin: 10px auto;
+                }
+            </style>
+
+
+            <div class="form">
+                <input class="form-input" type="text" name="name" id="name" placeholder="Enter Your Name" required>
+                <input class="form-input" type="text" name="phone" id="phone" placeholder="Enter Your Phone Number" required>
+                <input class="form-input" type="email" name="email" id="email" placeholder="Enter Your email-id" required>
+                <textarea class="form-input" name="text" id="text" cols="30" rows="10"
+                    placeholder="Elaborate your Query"></textarea>
+                <button class="btn btn-dark" type="submit">Submit</button>
+            </div>
+            <button class="btntop"><a href="">Go to top</a></button>
+        </section>
+
+
+        <footer class="background">
+            <p class="text-footer">
+                Copyright &copy; 2027 Cyber-ride.com- All rights reserved
+            </p>
+        </footer>
+
+    </body>
+
+</html>
